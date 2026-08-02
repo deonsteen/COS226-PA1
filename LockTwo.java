@@ -1,22 +1,18 @@
-public class LockTwo implements Lock {
-    
+public class LockTwo implements TwoThreadLock {
+
     private volatile int victim;
 
-    @Override 
-    public void lock()
-    {
-        int i = Threadid.get();
-        victim = i;
+    @Override
+    public void lock(int threadId) {
+        victim = threadId;
 
-        while (victim ==i)
-        {
+        while (victim == threadId) {
+            // busy-wait
         }
     }
 
     @Override
-
-    public void unlock() 
-    {
-        
+    public void unlock(int threadId) {
+        // no-op: LockTwo requires no release action
     }
 }
