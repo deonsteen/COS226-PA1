@@ -21,9 +21,7 @@ counter inside the critical section, and release the lock.
 | `LockOne.java`       | Implementation of the LockOne algorithm.              |
 | `LockTwo.java`       | Implementation of the LockTwo algorithm.              |
 | `PetersonLock.java`  | Implementation of Peterson's Lock.                    |
-| `Threadid.java`      | Helper class that assigns a unique thread ID (0 or 1) via `ThreadLocal`. |
 | `Main.java`          | Test harness that runs all three algorithms with two threads and reports results. |
-| `Lock.java`          | (Unused / legacy no-arg lock interface — not required by the current implementation.) |
 
 Each algorithm file contains comments marking exactly where the core logic
 of that algorithm is implemented (flag setting, victim/turn assignment,
