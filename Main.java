@@ -22,8 +22,8 @@ public class Main {
         t0.start();
         t1.start();
 
-        t0.join(5000);
-        t1.join(5000);
+        t0.join(1500);
+        t1.join(1500);
 
         if (t0.isAlive() || t1.isAlive()) {
             System.out.println(name + " deadlocked.");

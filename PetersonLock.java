@@ -2,11 +2,11 @@
 public class PetersonLock implements TwoThreadLock {
 
     // Per-thread "I want to enter" flags.
-    private boolean flag0;
-    private boolean flag1;
+    private volatile boolean flag0;
+    private volatile boolean flag1;
 
     // Id of whichever thread set victim last — that thread is "polite" and waits.
-    private int victim;
+    private volatile int victim;
 
     @Override
     public void lock(int threadId) {
