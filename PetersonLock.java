@@ -1,5 +1,5 @@
 // Required Feature: Peterson's Lock
-public class PetersonLock {
+public class PetersonLock implements TwoThreadLock {
 
     // Per-thread "I want to enter" flags.
     private boolean flag0;
@@ -8,8 +8,9 @@ public class PetersonLock {
     // Id of whichever thread set victim last — that thread is "polite" and waits.
     private int victim;
 
-    public void lock() {
-        int i = ThreadID.get();
+    @Override
+    public void lock(int threadId) {
+        int i = threadId;
         int j = 1 - i;
 
         setFlag(i, true);
@@ -21,9 +22,9 @@ public class PetersonLock {
         }
     }
 
-    public void unlock() {
-        int i = ThreadID.get();
-        setFlag(i, false);
+    @Override
+    public void unlock(int threadId) {
+        setFlag(threadId, false);
     }
 
     // Lets lock()/unlock() address flag0/flag1 by index (0 or 1).
